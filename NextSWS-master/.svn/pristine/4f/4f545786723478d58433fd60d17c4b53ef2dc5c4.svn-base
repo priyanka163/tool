@@ -1,0 +1,117 @@
+package com.nexteducation.nextsws;
+
+import android.databinding.DataBindingUtil;
+import android.graphics.Typeface;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.nexteducation.nextsws.common.ViewPagerAdapter;
+import com.nexteducation.nextsws.databinding.ActivitySubjectBinding;
+
+public class MainActivity extends AppCompatActivity {
+
+    private ActivitySubjectBinding mActivitySubjectBinding;
+    private ViewPagerAdapter mViewPagerAdapter;
+
+    private int mSelectedTab = 0;
+    public Typeface mTypeface;
+
+    private String[] mHeaderIcons;
+    private String[] mHeaderTitles;
+    private int mCount = 0;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        mActivitySubjectBinding = DataBindingUtil.setContentView(this, R.layout.activity_subject);
+
+        mTypeface = Typeface.createFromAsset(getAssets(), "header_icons.ttf");
+
+        /* Getting the Icon titles and icons from String array */
+        mHeaderIcons = getResources().getStringArray(R.array.header_icons);
+        mHeaderTitles = getResources().getStringArray(R.array.header_titles);
+        mCount = mHeaderTitles.length;
+
+        /* SettingUp the ViewPager */
+        mViewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        mActivitySubjectBinding.viewpager.setAdapter(mViewPagerAdapter);
+        mActivitySubjectBinding.tabs.setupWithViewPager(mActivitySubjectBinding.viewpager);
+        mActivitySubjectBinding.viewpager.setCurrentItem(mSelectedTab);
+        setSelectedTab();
+
+
+        mActivitySubjectBinding.tabs.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                tab.setCustomView(null);
+                LinearLayout tabOne = (LinearLayout) LayoutInflater.from(getApplicationContext()).inflate(R.layout.tablayout_custom_selected, null);
+                TextView text = (TextView) tabOne.findViewById(R.id.title);
+                TextView icon = (TextView) tabOne.findViewById(R.id.icon);
+                icon.setTypeface(mTypeface);
+                icon.setText(mHeaderIcons[tab.getPosition()]);
+                text.setText(mHeaderTitles[tab.getPosition()]);
+                tab.setCustomView(tabOne);
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                tab.setCustomView(null);
+                RelativeLayout tabLayout = (RelativeLayout) LayoutInflater.from(getApplicationContext()).inflate(R.layout.tablayout_custom, null);
+                TextView icon = (TextView) tabLayout.findViewById(R.id.icon);
+                icon.setTypeface(mTypeface);
+                icon.setText(mHeaderIcons[tab.getPosition()]);
+                tab.setCustomView(tabLayout);
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+        mActivitySubjectBinding.viewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                mSelectedTab = position;
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+    }
+
+    private void setSelectedTab() {
+        for (int i = 0; i < mCount; i++) {
+            mActivitySubjectBinding.tabs.getTabAt(i).setCustomView(null);
+            if(i == mSelectedTab) {
+                LinearLayout tabOne = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.tablayout_custom_selected, null);
+                TextView text = (TextView) tabOne.findViewById(R.id.title);
+                TextView icon = (TextView) tabOne.findViewById(R.id.icon);
+                icon.setTypeface(mTypeface);
+                icon.setText(mHeaderIcons[i]);
+                text.setText(mHeaderTitles[i]);
+                mActivitySubjectBinding.tabs.getTabAt(i).setCustomView(tabOne);
+            } else {
+                RelativeLayout tab = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.tablayout_custom, null);
+                TextView icon = (TextView) tab.findViewById(R.id.icon);
+                icon.setTypeface(mTypeface);
+                icon.setText(mHeaderIcons[i]);
+                mActivitySubjectBinding.tabs.getTabAt(i).setCustomView(tab);
+            }
+        }
+    }
+}

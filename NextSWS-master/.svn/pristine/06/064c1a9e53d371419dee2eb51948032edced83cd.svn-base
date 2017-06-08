@@ -1,0 +1,93 @@
+
+package android.databinding;
+import com.nexteducation.nextsws.BR;
+class DataBinderMapper {
+    final static int TARGET_MIN_SDK = 19;
+    public DataBinderMapper() {
+    }
+    public android.databinding.ViewDataBinding getDataBinder(android.databinding.DataBindingComponent bindingComponent, android.view.View view, int layoutId) {
+        switch(layoutId) {
+                case com.nexteducation.nextsws.R.layout.fragment_weekview:
+                    return com.nexteducation.nextsws.databinding.FragmentWeekviewBinding.bind(view, bindingComponent);
+                case com.nexteducation.nextsws.R.layout.footer_layout:
+                    return com.nexteducation.nextsws.databinding.FooterLayoutBinding.bind(view, bindingComponent);
+                case com.nexteducation.nextsws.R.layout.fragment_homework:
+                    return com.nexteducation.nextsws.databinding.FragmentHomeworkBinding.bind(view, bindingComponent);
+                case com.nexteducation.nextsws.R.layout.activity_subject:
+                    return com.nexteducation.nextsws.databinding.ActivitySubjectBinding.bind(view, bindingComponent);
+                case com.nexteducation.nextsws.R.layout.fragment_dayview:
+                    return com.nexteducation.nextsws.databinding.FragmentDayviewBinding.bind(view, bindingComponent);
+                case com.nexteducation.nextsws.R.layout.fragment_courseview:
+                    return com.nexteducation.nextsws.databinding.FragmentCourseviewBinding.bind(view, bindingComponent);
+                case com.nexteducation.nextsws.R.layout.tablayout_custom_selected:
+                    return com.nexteducation.nextsws.databinding.TablayoutCustomSelectedBinding.bind(view, bindingComponent);
+        }
+        return null;
+    }
+    android.databinding.ViewDataBinding getDataBinder(android.databinding.DataBindingComponent bindingComponent, android.view.View[] views, int layoutId) {
+        switch(layoutId) {
+        }
+        return null;
+    }
+    int getLayoutId(String tag) {
+        if (tag == null) {
+            return 0;
+        }
+        final int code = tag.hashCode();
+        switch(code) {
+            case 929302772: {
+                if(tag.equals("layout/fragment_weekview_0")) {
+                    return com.nexteducation.nextsws.R.layout.fragment_weekview;
+                }
+                break;
+            }
+            case -546463334: {
+                if(tag.equals("layout/footer_layout_0")) {
+                    return com.nexteducation.nextsws.R.layout.footer_layout;
+                }
+                break;
+            }
+            case -1250565365: {
+                if(tag.equals("layout/fragment_homework_0")) {
+                    return com.nexteducation.nextsws.R.layout.fragment_homework;
+                }
+                break;
+            }
+            case 1630777266: {
+                if(tag.equals("layout/activity_subject_0")) {
+                    return com.nexteducation.nextsws.R.layout.activity_subject;
+                }
+                break;
+            }
+            case -960099448: {
+                if(tag.equals("layout/fragment_dayview_0")) {
+                    return com.nexteducation.nextsws.R.layout.fragment_dayview;
+                }
+                break;
+            }
+            case -1995555493: {
+                if(tag.equals("layout/fragment_courseview_0")) {
+                    return com.nexteducation.nextsws.R.layout.fragment_courseview;
+                }
+                break;
+            }
+            case 1951121013: {
+                if(tag.equals("layout/tablayout_custom_selected_0")) {
+                    return com.nexteducation.nextsws.R.layout.tablayout_custom_selected;
+                }
+                break;
+            }
+        }
+        return 0;
+    }
+    String convertBrIdToString(int id) {
+        if (id < 0 || id >= InnerBrLookup.sKeys.length) {
+            return null;
+        }
+        return InnerBrLookup.sKeys[id];
+    }
+    private static class InnerBrLookup {
+        static String[] sKeys = new String[]{
+            "_all"};
+    }
+}

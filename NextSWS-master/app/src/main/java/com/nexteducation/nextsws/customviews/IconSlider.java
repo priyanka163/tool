@@ -1,0 +1,220 @@
+package com.nexteducation.nextsws.customviews;
+
+import android.content.Context;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.util.AttributeSet;
+import android.util.DisplayMetrics;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.SeekBar;
+import android.widget.TextView;
+
+import com.nexteducation.nextsws.R;
+
+/**
+ * Created by saisasank on 1/27/2017.
+ */
+
+public class IconSlider extends RelativeLayout{
+    private int mIcons = 1;
+    private CharSequence[] mIconNames;
+    private Typeface mTypeface;
+    private float mScale;
+    private float mSliderHeight;
+    private int mPreviousMode = -1;
+    private int mTextSize = 25;
+
+    /* Listeners */
+    private OnIconChangeListener mOnIconChangeListener;
+
+    private SeekBar mSeekBar;
+    private RelativeLayout mIconLayout;
+
+    public IconSlider(Context context) {
+        super(context);
+        init();
+    }
+
+    public IconSlider(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init(context, attrs);
+    }
+
+    public IconSlider(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init(context, attrs);
+    }
+
+    private void init() {
+
+    }
+
+    private void init(Context context, AttributeSet attrs) {
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.IconSlider);
+
+        mIcons = typedArray.getInteger(R.styleable.IconSlider_noOfItems, 0);
+        mIconNames = typedArray.getTextArray(R.styleable.IconSlider_android_entries);
+        String typeface = typedArray.getString(R.styleable.IconSlider_typeface);
+        if(typeface.contains(".ttf")) {
+            mTypeface = Typeface.createFromAsset(getContext().getAssets(), typeface);
+        }
+
+        mSliderHeight = typedArray.getDimension(R.styleable.IconSlider_sliderHeight, 200);
+        Drawable backgroundDrawable = typedArray.getDrawable(R.styleable.IconSlider_backgroundDrawable);
+        typedArray.recycle();
+
+        inflateIconLayout();
+
+        mIconLayout.setBackground(backgroundDrawable);
+
+        mScale = Resources.getSystem().getDisplayMetrics().density;
+        for(int i = 0; i < mIcons; i++) {
+            inflateTextView(i);
+        }
+        inflateSeekBar();
+    }
+
+    private void inflateTextView(int position) {
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, (int) (mSliderHeight/mIcons));
+        layoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL, 1);
+        TextView textView = new TextView(getContext());
+        textView.setTypeface(mTypeface);
+        textView.setTextColor(Color.WHITE);
+        textView.setTextSize(mTextSize);
+        textView.setGravity(Gravity.CENTER);
+        textView.setText(mIconNames[position]);
+        textView.setId(position + 100);
+        textView.setPadding(10, 0, 10, 0);
+        if(position != 0) {
+            layoutParams.addRule(RelativeLayout.BELOW, position - 1 + 100);
+        }
+        textView.setLayoutParams(layoutParams);
+        mIconLayout.addView(textView);
+    }
+
+    private void inflateSeekBar() {
+        mSeekBar = new SeekBar(getContext());
+        mSeekBar.setProgressDrawable(new ColorDrawable(Color.TRANSPARENT));
+        mSeekBar.setProgress(0);
+        mSeekBar.setRotation(90f);
+        mSeekBar.setThumb(createThumb(mIconNames[0]));
+        mPreviousMode = 0;
+        changeThumbOffset(16);
+        mSeekBar.setMax(mIcons - 1);
+
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int) mSliderHeight, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT, 1);
+        mSeekBar.setLayoutParams(layoutParams);
+        addView(mSeekBar);
+
+        mSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                if(seekBar.getProgress() != mPreviousMode) {
+                    if(mOnIconChangeListener != null) {
+                        mOnIconChangeListener.onIconChange(seekBar, seekBar.getProgress());
+                    }
+
+                    /* Changing the thumb of the SeekBar accordingly */
+                    seekBar.setThumb(createThumb(mIconNames[seekBar.getProgress()]));
+                    if(seekBar.getProgress() == 0) {
+                        changeThumbOffset(16);
+                    } /*else if(seekBar.getProgress() == mIcons - 2) {
+                        changeThumbOffset(32);
+                    } */else if(seekBar.getProgress() == mIcons - 1) {
+                        changeThumbOffset(48);
+                    }
+                    setIconVisibility(seekBar.getProgress() + 100, View.INVISIBLE);
+                    setIconVisibility(mPreviousMode + 100, View.VISIBLE);
+                    mPreviousMode = seekBar.getProgress();
+                }
+            }
+        });
+    }
+
+    private void setIconVisibility(int id, int visibility) {
+        findViewById(id).setVisibility(visibility);
+    }
+
+    private void inflateIconLayout() {
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, (int) mSliderHeight);
+        layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT, 1);
+        mIconLayout = new RelativeLayout(getContext());
+        mIconLayout.setLayoutParams(layoutParams);
+        addView(mIconLayout);
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    }
+
+    private void changeThumbOffset(int dp) {
+        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+        int px = (int)((dp * displayMetrics.density) + 0.5);
+        mSeekBar.setThumbOffset(px);
+    }
+
+    private BitmapDrawable createThumb(CharSequence text) {
+        View thumb = LayoutInflater.from(getContext()).inflate(R.layout.seekbar_icon,
+                null);
+
+        TextView thumbText = (TextView) thumb.findViewById(R.id.icon_text);
+        thumbText.setTypeface(mTypeface);
+        thumbText.setText(text);
+        thumbText.setTextSize(mTextSize * mScale);
+        thumbText.setTextColor(Color.BLACK);
+
+        thumb.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
+                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+        thumb.layout(0, 0, thumb.getMeasuredWidth(), thumb.getMeasuredHeight());
+
+        final Bitmap thumbBitmap = Bitmap.createBitmap(thumb.getMeasuredWidth(),
+                thumb.getMeasuredHeight(), Bitmap.Config.ARGB_8888);
+
+        Canvas canvas = new Canvas(thumbBitmap);
+        thumb.draw(canvas);
+
+        Matrix matrix = new Matrix();
+        matrix.postRotate(270);
+        Bitmap rotatedBitMap = Bitmap.createBitmap(thumbBitmap, 0, 0, thumbBitmap.getWidth() , thumbBitmap.getHeight() , matrix, true);
+
+        return new BitmapDrawable(rotatedBitMap);
+    }
+
+    public void setOnIconChangeListener(OnIconChangeListener onIconChangeListener) {
+        this.mOnIconChangeListener = onIconChangeListener;
+    }
+
+    public interface OnIconChangeListener {
+
+        /**
+         * This will be called if user selects another mode
+         * by sliding or clicking the respective icon
+         * @param view
+         * @param position
+         */
+        void onIconChange(View view, int position);
+    }
+}

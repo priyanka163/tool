@@ -1,0 +1,6 @@
+package android.databinding.layouts;
+
+import android.databinding.BindingBuildInfo;
+
+@BindingBuildInfo(buildId="8adf3fcd-c894-4028-86bc-f43f863b1a2e", modulePackage="com.nexteducation.nextsws", sdkRoot="C:\\Users\\saisasank\\AppData\\Local\\Android\\sdk",layoutInfoDir="E:\\AndroidStudioProjects\\SWS\\master\\NextSWS\\app\\build\\intermediates\\data-binding-info\\debug",exportClassListTo="",isLibrary=false,minSdk=19,enableDebugLogs=false,printEncodedError=true)
+public class DataBindingInfo {}

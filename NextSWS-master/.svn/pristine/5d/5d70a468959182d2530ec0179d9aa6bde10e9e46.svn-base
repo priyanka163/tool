@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "E:\\AndroidStudioProjects\\SWS\\master\\NextSWS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\ppt.png",
+        "source": "E:\\AndroidStudioProjects\\SWS\\master\\NextSWS\\app\\src\\main\\res\\drawable-xxhdpi\\ppt.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\SWS\\master\\NextSWS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\right.png",
+        "source": "E:\\AndroidStudioProjects\\SWS\\master\\NextSWS\\app\\src\\main\\res\\drawable-xxhdpi\\right.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\SWS\\master\\NextSWS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\doc.png",
+        "source": "E:\\AndroidStudioProjects\\SWS\\master\\NextSWS\\app\\src\\main\\res\\drawable-xxhdpi\\doc.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\SWS\\master\\NextSWS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\left.png",
+        "source": "E:\\AndroidStudioProjects\\SWS\\master\\NextSWS\\app\\src\\main\\res\\drawable-xxhdpi\\left.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\SWS\\master\\NextSWS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\assessments.png",
+        "source": "E:\\AndroidStudioProjects\\SWS\\master\\NextSWS\\app\\src\\main\\res\\drawable-xxhdpi\\assessments.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\SWS\\master\\NextSWS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\xls.png",
+        "source": "E:\\AndroidStudioProjects\\SWS\\master\\NextSWS\\app\\src\\main\\res\\drawable-xxhdpi\\xls.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\SWS\\master\\NextSWS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\pdf.png",
+        "source": "E:\\AndroidStudioProjects\\SWS\\master\\NextSWS\\app\\src\\main\\res\\drawable-xxhdpi\\pdf.png"
+    }
+]

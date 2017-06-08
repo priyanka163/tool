@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+        <RelativeLayout
+            android:id="@+id/info_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="52dp"
+            android:layout_marginTop="@dimen/margin_28">
+            <ImageView
+                android:id="@+id/category_icon"
+                android:layout_width="@dimen/margin_36"
+                android:layout_height="@dimen/margin_36"
+                android:src="@drawable/ppt"/>
+
+            <TextView
+                android:id="@+id/category_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/BlackBigTextStyle"
+                android:text="Class Work"
+                android:layout_toRightOf="@id/category_icon"
+                android:layout_marginLeft="@dimen/margin_16"/>
+
+            <TextView
+                android:id="@+id/chapter_name"
+                android:layout_width="@dimen/margin_200"
+                android:layout_height="wrap_content"
+                android:minLines="2"
+                android:maxLines="2"
+                android:text="Mole Concept and Stochiometry Mole Concept"
+                style="@style/GreyTextStyle"
+                android:textSize="@dimen/text_16"
+                android:layout_below="@id/category_name"
+                android:layout_toRightOf="@id/category_icon"
+                android:layout_marginTop="@dimen/margin_16"
+                android:layout_marginLeft="@dimen/margin_16"/>
+
+            <RelativeLayout
+                android:id="@+id/session_info_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true">
+                <ImageView
+                    android:id="@+id/left"
+                    android:layout_width="@dimen/margin_30"
+                    android:layout_height="@dimen/margin_30"
+                    android:src="@drawable/left"
+                    android:clickable="true"
+                    android:padding="3dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:layout_centerVertical="true"/>
+
+                <RelativeLayout
+                    android:id="@+id/date_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/left"
+                    android:layout_marginLeft="@dimen/margin_10"
+                    android:layout_marginRight="@dimen/margin_10">
+                    <TextView
+                        android:id="@+id/session_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/BlackMediumTextStyle"
+                        android:text="Session : 12, "/>
+                    <TextView
+                        android:id="@+id/lecture_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/session_text"
+                        style="@style/GreenTextStyle"
+                        android:text="Lecture"
+                        android:layout_marginTop="@dimen/margin_2"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/session_text"
+                        android:text="Wed, 24 Aug, 2016"
+                        android:textSize="14sp"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:layout_centerHorizontal="true"/>
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/right"
+                    android:layout_toRightOf="@id/date_layout"
+                    android:layout_width="@dimen/margin_30"
+                    android:layout_height="@dimen/margin_30"
+                    android:src="@drawable/right"
+                    android:clickable="true"
+                    android:padding="3dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:layout_centerVertical="true"/>
+
+            </RelativeLayout>
+
+            <Spinner
+                android:id="@+id/courseview_mode_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_24"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true">
+            </Spinner>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/info_layout"
+            android:layout_marginTop="@dimen/margin_10">
+
+
+            <FrameLayout
+                android:id="@+id/frame_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="52dp">
+            </FrameLayout>
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/margin_220"
+            android:layout_centerVertical="true">
+            <com.nexteducation.nextsws.customviews.IconSlider
+                android:id="@+id/icon_slider"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/margin_220"
+                app:sliderHeight="@dimen/margin_220"
+                app:typeface="course_view_icons.ttf"
+                app:noOfItems="4"
+                android:layout_marginLeft="-30dp"
+                android:layout_centerVertical="true"
+                app:backgroundDrawable="@drawable/progress_bar_vertical"
+                android:entries="@array/course_view_icon_names">
+
+            </com.nexteducation.nextsws.customviews.IconSlider>
+
+
+        </FrameLayout>
+    </RelativeLayout>
+</layout>

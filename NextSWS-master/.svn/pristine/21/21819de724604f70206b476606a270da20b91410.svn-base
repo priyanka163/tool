@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">NextSWS</string>
+
+    <string name="resources">Resources</string>
+    <string name="tools">Tools</string>
+
+    <string-array name="header_icons">
+        <item>a</item>
+        <item>b</item>
+        <item>a</item>
+        <item>b</item>
+    </string-array>
+
+    <string-array name="header_titles">
+        <item>School</item>
+        <item>Study Plan</item>
+        <item>Analytics</item>
+        <item>Social</item>
+    </string-array>
+
+    <string-array name="courseview_modes">
+        <item>Day</item>
+        <item>Week</item>
+    </string-array>
+
+    <string-array name="course_view_icon_names">
+        <item>a</item>
+        <item>b</item>
+        <item>a</item>
+        <item>b</item>
+    </string-array>
+
+    <string-array name="course_view_mode_names">
+        <item>Class Work</item>
+        <item>Home Work</item>
+        <item>Class Work</item>
+        <item>Home Work</item>
+    </string-array>
+</resources>

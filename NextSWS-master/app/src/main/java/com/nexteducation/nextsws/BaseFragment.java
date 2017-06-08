@@ -1,0 +1,41 @@
+package com.nexteducation.nextsws;
+
+import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+/**
+ * Created by saisasank on 1/27/2017.
+ */
+
+public class BaseFragment extends Fragment {
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
+    {
+        return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    public <T extends Fragment> void addFragment(T fragment, int layoutId, boolean addToBackStack) {
+
+        FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+        if(addToBackStack) {
+            fragmentTransaction.addToBackStack(null);
+        }
+        fragmentTransaction.replace(layoutId,
+                fragment,
+                fragment.getClass().getName())
+                .commit();
+    }
+}

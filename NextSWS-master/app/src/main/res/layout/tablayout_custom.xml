@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tab"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/actionbar_size"
+    android:paddingLeft="@dimen/margin_20"
+    android:paddingRight="@dimen/margin_20">
+
+    <TextView
+        android:id="@+id/icon"
+        android:layout_width="@dimen/margin_40"
+        android:layout_height="@dimen/margin_40"
+        android:text="a"
+        android:gravity="center"
+        android:textSize="@dimen/text_36"
+        android:textColor="@color/toolbar_icon_dark"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>

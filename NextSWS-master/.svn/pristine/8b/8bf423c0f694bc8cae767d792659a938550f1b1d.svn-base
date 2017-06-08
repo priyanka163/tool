@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+                                                                   
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionbar_size"
+        android:background="@color/grey_background" android:tag="layout/footer_layout_0" xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_1"
+            android:background="@color/grey_background"
+            android:elevation="@dimen/margin_1"/>
+
+        <View
+            android:id="@+id/resources_line"
+            android:layout_width="@dimen/margin_4"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/fab_width"
+            android:background="@android:color/white"/>
+
+        <TextView
+            android:id="@+id/resources_text"
+            style="@style/GreyTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_10"
+            android:layout_toRightOf="@id/resources_line"
+            android:gravity="center_vertical"
+            android:text="@string/resources"/>
+
+        <ImageView
+            android:id="@+id/assessments"
+            android:layout_width="@dimen/margin_36"
+            android:layout_height="@dimen/margin_36"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_20"
+            android:layout_toRightOf="@id/resources_text"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:padding="@dimen/margin_2"
+            android:src="@drawable/assessments"/>
+
+        <ImageView
+            android:id="@+id/ppt"
+            android:layout_width="@dimen/margin_36"
+            android:layout_height="@dimen/margin_36"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_20"
+            android:layout_toRightOf="@id/assessments"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:padding="@dimen/margin_2"
+            android:src="@drawable/ppt"/>
+
+        <ImageView
+            android:id="@+id/doc"
+            android:layout_width="@dimen/margin_36"
+            android:layout_height="@dimen/margin_36"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_20"
+            android:layout_toRightOf="@id/ppt"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:padding="@dimen/margin_2"
+            android:src="@drawable/doc"/>
+
+        <ImageView
+            android:id="@+id/pdf"
+            android:layout_width="@dimen/margin_36"
+            android:layout_height="@dimen/margin_36"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_20"
+            android:layout_toRightOf="@id/doc"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:padding="@dimen/margin_2"
+            android:src="@drawable/pdf"/>
+
+        <ImageView
+            android:id="@+id/xls"
+            android:layout_width="@dimen/margin_36"
+            android:layout_height="@dimen/margin_36"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_20"
+            android:layout_toRightOf="@id/pdf"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:padding="@dimen/margin_2"
+            android:src="@drawable/xls"/>
+
+        <RelativeLayout
+            android:layout_width="@dimen/margin_272"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true">
+            <View
+                android:id="@+id/tools_line"
+                android:layout_width="@dimen/margin_4"
+                android:layout_height="match_parent"
+                android:background="@android:color/white" />
+
+            <TextView
+                android:id="@+id/tools_text"
+                style="@style/GreyTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin_10"
+                android:layout_toRightOf="@id/tools_line"
+                android:gravity="center_vertical"
+                android:text="@string/tools" />
+
+            <ImageView
+                android:id="@+id/tools_pdf"
+                android:layout_width="@dimen/margin_36"
+                android:layout_height="@dimen/margin_36"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin_20"
+                android:layout_toRightOf="@id/tools_text"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:padding="@dimen/margin_2"
+                android:src="@drawable/pdf"/>
+
+            <ImageView
+                android:id="@+id/tools_xls"
+                android:layout_width="@dimen/margin_36"
+                android:layout_height="@dimen/margin_36"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin_20"
+                android:layout_toRightOf="@id/tools_pdf"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:padding="@dimen/margin_2"
+                android:src="@drawable/xls"/>
+
+            <ImageView
+                android:id="@+id/tools_doc"
+                android:layout_width="@dimen/margin_36"
+                android:layout_height="@dimen/margin_36"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin_20"
+                android:layout_toRightOf="@id/tools_xls"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:padding="@dimen/margin_2"
+                android:src="@drawable/doc"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+         

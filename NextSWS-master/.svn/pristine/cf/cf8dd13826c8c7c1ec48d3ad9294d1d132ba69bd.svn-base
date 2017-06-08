@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RoundedHorizontalProgress">
+        <attr name="backgroundColor" format="color"/>
+        <attr name="progressColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="IconSlider">
+        <attr name="noOfItems" format="integer"/>
+        <attr name="backgroundDrawable" format="integer"/>
+        <attr name="sliderHeight" format="dimension"/>
+        <attr name="typeface" format="string"/>
+        <attr name="android:entries"/>
+    </declare-styleable>
+</resources>

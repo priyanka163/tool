@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4389D1</color>
+    <color name="colorPrimaryDark">#2766A9</color>
+    <color name="colorAccent">#F3F673</color>
+    
+    <color name="toolbar_icon_light">#C3E6FF</color>
+    <color name="toolbar_icon_dark">#2766A9</color>
+    <color name="toolbar_icon_pressed">#3E7FC3</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="fab_green_color">#1CC05C</color>
+    <color name="grey_background">#EAEFF5</color>
+    <color name="slider_background">#ABB2BA</color>
+    <color name="thumb_circle_color">#FFFFFF</color>
+    <color name="yellow_background">#FAC322</color>
+    <color name="grey">#DEDEDE</color>
+
+    <color name="pink">#AB6BA8</color>
+    <color name="pink_light">#E7BEE6</color>
+
+    <color name="sky_blue">#47D9CC</color>
+    <color name="sky_blue_light">#CAEEEA</color>
+
+    <color name="violet">#A25FE0</color>
+    <color name="violet_light">#E8DCF4</color>
+
+    <color name="blue">#448AD2</color>
+    <color name="blue_light">#C7E3F8</color>
+
+    <color name="green">#4AC840</color>
+    <color name="green_light">#CDF7C9</color>
+
+    <!-- Text Colors-->
+    <color name="text_green_color">@color/fab_green_color</color>
+    <color name="text_black_color">#000000</color>
+    <color name="text_grey_color">#8E8E8E</color>
+
+
+</resources>
